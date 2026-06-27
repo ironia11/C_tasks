@@ -3,8 +3,7 @@
 // (a2, an-1),..., (an, a1) таких, которые принадлежат кругу радиуса r с центром в начале координат?
 // https://ivtipm.github.io/Programming/Glava07/index07.htm#z199
 
-#include <stdio.h>
-#include <math.h>  
+#include <stdio.h> 
 
 int main() {
 

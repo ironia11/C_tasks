@@ -2,8 +2,7 @@
 // Дано натуральное число n (n ≤ 99). Выяснить, верно ли, что n^2 равно кубу суммы цифр числа n.
 // ivtipm.github.io/Programming/Glava03/index03.htm#z65
 
-#include <stdio.h>
-#include <math.h>  
+#include <stdio.h> 
 
 int main() {
 
