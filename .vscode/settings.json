@@ -1,0 +1,10 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "path": "cmd.exe",
+            "args": ["/k", "chcp 65001"]
+        }
+    },
+    "terminal.integrated.agentHostProfile.windows": "powershell.exe /k chcp 65001"
+
+}
