@@ -9,7 +9,7 @@ int main() {
 
     float a, b, x, y, z = 0.0;
     printf("Введите x: ");
-    scanf("%f", &x);
+    scanf("%f", &x);                // & указывает расположение переменной в памяти 
     printf("Введите y: ");
     scanf("%f", &y);
     printf("Введите z: ");
