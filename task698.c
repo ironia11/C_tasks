@@ -22,6 +22,14 @@ int main() {
         }
     }
 
+    // вывод сгенерированной матрицы A
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%9.2f ", A[i][j]);
+        }
+        printf("\n");
+    }
+
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             B[i][j] = 0;
@@ -31,15 +39,7 @@ int main() {
         }
     }
 
-    // Вывод сгенерированной матрицы A
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%9.2f ", A[i][j]);
-        }
-        printf("\n");
-    }
-
-    // Вывод результата
+    // вывод результата
     printf("\n");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {

@@ -28,6 +28,14 @@ int main() {
         }
     }
 
+    // вывод сгенерированной матрицы
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%7.2f ", matr[i][j]);
+        }
+        printf("\n");
+    }
+
     for (int j = 0; j < m; j++) { 
         sum = 0.0; 
         for (int i = 0; i < n; i++) {
@@ -36,14 +44,7 @@ int main() {
         b[j] = sum / n;
     }
 
-    // Вывод сгенерированной матрицы
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            printf("%7.2f ", matr[i][j]);
-        }
-        printf("\n");
-    }
-
+    // вывод результата
     printf("\n Матрица b: ");
     for (int i = 0; i < m; i++) {
         printf("%.2f  ", b[i]);
