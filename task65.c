@@ -5,7 +5,6 @@
 #include <stdio.h> 
 
 int main() {
-
     unsigned short n = 0;
     unsigned short n0 = 0;
     unsigned short sum = 0;

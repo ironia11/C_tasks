@@ -1,67 +1,69 @@
 // Задача 338г
-// Даны натуральное число n, целые числа a1,..., a25, b1,..., bn. 
-// Среди a1,..., a25 нет повторяющихся чисел, нет их и среди b1,..., bn. 
-// Верно ли, что все члены последовательности a1,..., a25 входят в последовательность b1,..., bn?
+// Даны натуральные числа m, n, целые числа a1,..., am, b1,..., bn. 
+// Среди a1,..., am нет повторяющихся чисел, нет их и среди b1,..., bn. 
+// Верно ли, что все члены последовательности a1,..., am входят в последовательность b1,..., bn?
 // https://ivtipm.github.io/Programming/Glava10/index10.htm#z338
 
 #include <stdio.h> 
 #include <stdbool.h>
 #define max_len 100
 
-
 // функция для проверки на наличие повторяющихся элементов в массиве
-// arr - массив, len_arr - длина массива
+// arr - массив, len - длина первого массива
 // выводит 1, если повторяющиеся элементы есть, и 0, если нет
-bool check_duplicates(int arr[], int len_arr) {
-    for (int i = 0; i < len_arr; i++) {
-        for (int j = i + 1; j < len_arr; j++) {
-            if (arr[i] == arr[j]) {
-                return 1;
-            }
+bool check_duplicates(int arr[], int len) {
+    for (int i = 0; i < len; i++) {
+        for (int j = i + 1; j < len; j++) {
+            if (arr[i] == arr[j]) 
+                return true;
         }
     }
-    return 0;
+    return false;
 }
 
 
 int main() {
-
     int count = 0;
-    int n;
-    int len_a;
+    int m, n;              // m - длина первого массива, n - длина второго массива
     printf("Введите количество элементов в массиве a: ");
-    scanf("%d", &len_a);
-    printf("Введите n: ");
+    scanf("%d", &m);
+    printf("Введите количество элементов в массиве b: ");
     scanf("%d", &n);
 
-    if (n < 1 || n > max_len) 
-    return 1;
-    if (len_a < 1 || len_a > max_len) 
-    return 1;
+    if (m < 1 || m > max_len || n < 1 || n > max_len) {
+        printf("Размер массива должен быть от 1 до %d\n", max_len);
+        return 1;
+    }
 
-    int a[len_a];   // статический массив для a1, a2, ..., a25
+    int a[m];       // автоматический массив для a1, a2, ..., am
     int b[n];       // автоматический массив для b1, b2, ..., bn
                     // автоматические массивы подходят не для всех компиляторов
                     // большие числа использовать нельзя
 
-    printf("Введите %d неповторяющихся чисел массива a: ", len_a);
-    for (int i = 0; i < len_a; i++) {
-        if (scanf("%d", &a[i]) != 1)
-        return 1;
-    }              
+    printf("Введите %d неповторяющихся чисел массива a: ", m);
+    for (int i = 0; i < m; i++) {
+        if (scanf("%d", &a[i]) != 1) {
+            printf("Ошибка ввода\n");
+            return 1;
+        }
+    }
 
     printf("Введите %d неповторяющихся чисел массива b: ", n);
     for (int i = 0; i < n; i++) {
-        if (scanf("%d", &b[i]) != 1)
-        return 1;
+        if (scanf("%d", &b[i]) != 1) {
+            printf("Ошибка ввода\n");
+            return 1;
+        }
     }
 
     // проверка наличия повторяющиеся элементов в массивах
-    if (check_duplicates(a, len_a) || check_duplicates(b, n))
-    return 1;
+    if (check_duplicates(a, m) || check_duplicates(b, n)) {
+        printf("Найдены повторяющиеся элементы\n");
+        return 1;
+    }
 
     // проверка условия
-    for (int i = 0; i < len_a; i++) {
+    for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             if (a[i] == b[j]) {
                 count += 1;
@@ -70,9 +72,10 @@ int main() {
         }
     }
 
-    if (count == len_a) 
+    if (count == m) 
         printf("Верно");
     else printf("Не верно");
+
     return 0;
 }
 
