@@ -5,12 +5,12 @@
 #include <stdio.h> 
 
 int main() {
-    unsigned short n = 0;
-    unsigned short n0 = 0;
-    unsigned short sum = 0;
+    int n = 0;
+    int n0 = 0;
+    int sum = 0;
 
     printf("Введите n ≤ 99: ");
-    scanf("%hu", &n);
+    scanf("%d", &n);
     n0 = n; 
 
     while (n > 0) {
