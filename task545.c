@@ -7,6 +7,7 @@
 // https://ivtipm.github.io/Programming/Glava14/index14.htm#z545
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "unit_task545.h"
 
 int main() {

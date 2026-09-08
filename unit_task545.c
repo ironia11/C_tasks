@@ -34,32 +34,19 @@ void add_circular_node(struct Node** tail, float data) {
 }
 
 
-// освобождает память, выделенную под кольцевой список из n элементов
-void free_circular_list(struct Node** head, int n) {
-    struct Node* cur = *head;
-    struct Node* next_node;
-    for (int i = 0; i < n; i++) {
-        next_node = cur->next;
-        free(cur);
-        cur = next_node;
-    }
-    *head = NULL;
-}
-
-
 // удаляет m-й элемент из кольцевого списка
 // возвращает следующий после удаленного элемент
-struct Node* remove_circular_node(struct Node* current, int m) {
-    struct Node* prev = current;
+struct Node* remove_circular_node(struct Node* cur, int m) {
+    struct Node* prev = cur;
     for (int i = 2; i <= m - 1; i++) {
         prev = prev->next;
     }
     struct Node* remove = prev->next;
     prev->next = remove->next;
     
-    if (remove == current)
-        current = prev->next;
+    if (remove == cur)
+        cur = prev->next;
     
     free(remove);
-    return current;
+    return cur;
 }

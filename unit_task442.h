@@ -5,13 +5,9 @@
 float distance(float x0, float y0, float x, float y);
 
 
-// ввод координат
-void input_coordinates(float X[100], float Y[100]);
+// ввод координат (x_1, y_1), (x_2, y_2), ..., (x_n, y_n)
+void input_coordinates(float X[100], float Y[100], int n);
 
 
 // вычисление периметра
-void calc_perimeter(float *perimeter, float X[], float Y[]);
-
-
-// вывод результата
-void print_result(float result);
+float calc_perimeter(float X[], float Y[], int n);

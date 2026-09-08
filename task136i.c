@@ -5,13 +5,11 @@
 #include <stdio.h>
 #include "unit_task136i.h"
 
-unsigned long factorial(int n);
-
 int main() {
     int n;
     printf("Введите количество элементов: ");
     scanf("%d", &n);
-    float a1, an, sum;
+    float a1, an;
     printf("Введите 1 число: ");
     scanf("%f", &a1);
     struct Node* head = create_node(a1);   // создаём узел, в котором записано число a1
@@ -25,10 +23,15 @@ int main() {
     }
 
     // вычисляем a1 / 0! + a2 / 1! + ... + an / (n - 1)!
-    sum = 0.0;
+    float sum = 0.0;
+    unsigned long fact = 1;
     struct Node* cur = head;
     for (int i = 1; i <= n; i++) {
-        unsigned long fact = factorial(i - 1);
+        if (i - 1 == 0)
+            fact = 1;
+        else 
+            fact *= (i - 1);
+
         sum += cur->data / fact;
         cur = cur->next;
     }
@@ -36,14 +39,4 @@ int main() {
     printf("%f\n", sum);
     free_list(&head);
     return 0;
-}
-
-
-// функция для вычисления факториала
-unsigned long factorial(int n) {
-    if (n <= 1) return 1;
-    unsigned long fact = 1;
-    for (int i = 2; i <= n; i++)
-        fact *= i;
-    return fact;
 }

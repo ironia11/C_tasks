@@ -8,12 +8,14 @@
 #include "unit_task442.h"
 
 int main() {
-    float X[100], Y[100];
-    float perim = 0.0;
+    int n;
+    printf("Введите количество вершин: ");
+    scanf("%d", &n);
 
-    input_coordinates(X, Y);
-    calc_perimeter(&perim, X, Y);
-    print_result(perim);
+    float X[100], Y[100];
+    input_coordinates(X, Y, n);
+    float perim = calc_perimeter(X, Y, n);
+    printf("%f", perim);
 
     return 0;
 }

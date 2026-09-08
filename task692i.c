@@ -12,7 +12,8 @@ int main() {
     srand(time(0));  // инициализация генератора случайных чисел
     
     int n;
-    input_matrix_size(&n);
+    printf("Введите n: ");
+    scanf("%d", &n);
     
     float matr[n][n];
     generate_matrix(n, matr);
@@ -20,7 +21,7 @@ int main() {
     print_matrix(n, matr);
     
     float max = find_max(n, matr);
-    print_result(max);
+    printf("\n Наибольшее значение в заштрихованной части: %.2f", max);
     
     return 0;
 }

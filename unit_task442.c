@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 #include "unit_task442.h"
-#define N 10
 
 
 // вычисления расстояния между двумя точками
@@ -11,27 +10,26 @@ float distance(float x0, float y0, float x, float y) {
 }
 
 
-// ввод координат
-void input_coordinates(float X[], float Y[]) {
-    for (int i = 0; i < N; i++) {
+// ввод координат (x_1, y_1), (x_2, y_2), ..., (x_n, y_n)
+// принимает массивы X[] и Y[] для хранения координат вершин и количество вершин n
+void input_coordinates(float X[], float Y[], int n) {
+    for (int i = 0; i < n; i++) {
         printf("Введите x[%d] и y[%d]: ", i + 1, i + 1);
         scanf("%f %f", &X[i], &Y[i]);
     }
 }
 
 
-// вычисление периметра
-void calc_perimeter(float *perimeter, float X[], float Y[]) {
-    for (int i = 0; i < N; i++) {
-        if (i != N - 1)
-            *perimeter += distance(X[i], Y[i], X[i+1], Y[i+1]);
+// принимает массивы X[] и Y[] c координатами вершин и количество вершин n
+// возращает периметр многоугольника
+float calc_perimeter(float X[], float Y[], int n) {
+    float perimeter = 0.0;
+    for (int i = 0; i < n; i++) {
+        if (i != n - 1)
+            perimeter += distance(X[i], Y[i], X[i+1], Y[i+1]);
         else 
-            *perimeter += distance(X[i], Y[i], X[0], Y[0]);
+            perimeter += distance(X[i], Y[i], X[0], Y[0]);
     }
+    return perimeter;
 }
 
-
-// вывод результата
-void print_result(float result) {
-    printf("%.3f", result);
-}
