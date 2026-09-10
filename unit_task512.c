@@ -3,17 +3,21 @@
 #include "unit_task512.h"
 
 
-void find_employee(FILE * f, char *surname, char *initials) {
+// принимает исходный файл f, фамилию сотрудника surname, инициалы сотрудника initials и 
+// флаг is_found, значение которого false, если сотрудник не найден и true, если найден
+// возвращает структуру Employee с данными об искомом сотруднике
+struct Employee find_employee(FILE * f, char *surname, char *initials, bool* is_found) {
     struct Employee emp;
-    int found = 0;
+    bool found = false;
 
     while (fscanf(f, "%s %s %s", emp.surname, emp.initials, emp.pnumber) == 3) {
         if (strcmp(surname, emp.surname) == 0 && (strcmp(initials, emp.initials) == 0)) {
-            printf("%s", emp.pnumber);
-            found++;
+            found = true;
+            break;
         }
     }
 
-    if (found == 0)
-        printf("Сотрудник не найден");
+    *is_found = found;
+
+    return emp;
 }

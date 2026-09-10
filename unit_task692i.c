@@ -30,7 +30,7 @@ float find_max(int n, float matr[n][n]) {
     float max = -FLT_MAX;                       // минимально возможное значение для float
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (i + j < n) {                    // заштрихованная область - левый верхний угол
+            if (i + j < n) {                    // заштрихованная область выше побочной диагонали
                 if (matr[i][j] > max)
                     max = matr[i][j];
             }

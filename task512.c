@@ -4,6 +4,7 @@
 // https://ivtipm.github.io/Programming/Glava13/index13.htm#z512
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 #include "unit_task512.h"
 
@@ -15,7 +16,14 @@ int main() {
     printf("Введите инициалы: ");
     scanf("%s", initials);
 
-    find_employee(f, surname, initials);
+    bool found = false;
+    
+    struct Employee emp = find_employee(f, surname, initials, &found);
+
+    if (found)
+        printf("%s", emp.pnumber);
+    else
+        printf("Такого сотрудника нет");
 
     fclose(f);
     return 0;
